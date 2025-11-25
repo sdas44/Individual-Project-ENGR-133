@@ -1,10 +1,14 @@
 import azure.cognitiveservices.speech as speechsdk
 import time
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # ---- ENTER YOUR INFO HERE ----
-SPEECH_KEY = ""
-REGION = ""   # ex: "eastus" or "westus2"
-AUDIO_FILE = ""  # path to your audio file
+SPEECH_KEY = os.getenv("SPEECH_KEY")
+REGION = os.getenv("REGION" )  # ex: "eastus" or "westus2"
+AUDIO_FILE = os.getenv("AUDIO_PATH") # path to your audio file
 # ------------------------------
 
 def transcribe_continuous_with_timeout(audio_file, timeout_seconds=20):
