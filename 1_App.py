@@ -39,6 +39,14 @@ if st.button("Add Task"):
     st.session_state.details = ""
     st.session_state.due_date = None
 
+audio_task = st.audio_input("Explain Your Tasks VIA Audio", key="audio_input")
+
+if audio_task:
+    # Save file to your machine
+    with open("user_audio_task.wav", "wb") as f:
+        f.write(audio_task.getvalue())
+
+    st.success("Audio saved as user_audio.wav")
 st.divider()
 
 
