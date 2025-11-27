@@ -1,0 +1,22 @@
+{
+    "tasks": [
+        {
+            "id": "task_1",
+            "name": "Re-index production",
+            "description": "Perform re-indexing to address the production issue.",
+            "due_date": null
+        },
+        {
+            "id": "task_2",
+            "name": "Deploy new file via indexing job",
+            "description": "Ensure the indexing job tonight picks up the new file and puts it into production.",
+            "due_date": "2025-11-25"
+        },
+        {
+            "id": "task_3",
+            "name": "Monitor indexing job",
+            "description": "Monitor the indexing job tomorrow and verify its operation.",
+            "due_date": "2025-11-26"
+        }
+    ]
+}

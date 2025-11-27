@@ -1,0 +1,28 @@
+{
+    "tasks": [
+        {
+            "id": "task_1",
+            "name": "Organize schedule",
+            "description": "Organize my schedule to stay on track and avoid falling behind.",
+            "due_date": "2025-11-25"
+        },
+        {
+            "id": "task_2",
+            "name": "Review assignments and projects",
+            "description": "Review any assignments or projects that are due soon and allocate time to finish them.",
+            "due_date": "2025-11-25"
+        },
+        {
+            "id": "task_3",
+            "name": "Catch up on messages and emails",
+            "description": "Read and respond to pending messages and emails to stay on top of communication.",
+            "due_date": "2025-11-25"
+        },
+        {
+            "id": "task_4",
+            "name": "Take a break",
+            "description": "Take a break to clear my mind, grab some food, and reset before continuing work.",
+            "due_date": "2025-11-25"
+        }
+    ]
+}
