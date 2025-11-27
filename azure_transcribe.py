@@ -51,5 +51,3 @@ def transcribe_continuous_with_timeout(audio_file, timeout_seconds=20):
 
 
 # ---- Run it ----
-output_text = transcribe_continuous_with_timeout(AUDIO_FILE)
-print("\nFinal transcript:\n", output_text)
