@@ -2,21 +2,21 @@
     "tasks": [
         {
             "id": "task_1",
-            "name": "Re-index production",
-            "description": "Perform re-indexing to address the production issue.",
-            "due_date": null
+            "name": "Clean and mop dorm",
+            "description": "Clean up the dorm and mop down the floors using a broom.",
+            "due_date": "2025-12-02"
         },
         {
             "id": "task_2",
-            "name": "Deploy new file via indexing job",
-            "description": "Ensure the indexing job tonight picks up the new file and puts it into production.",
-            "due_date": "2025-11-25"
+            "name": "Eat all fridge food",
+            "description": "Consume all the food inside the fridge to prevent it from going bad.",
+            "due_date": null
         },
         {
             "id": "task_3",
-            "name": "Monitor indexing job",
-            "description": "Monitor the indexing job tomorrow and verify its operation.",
-            "due_date": "2025-11-26"
+            "name": "Play Clash Royale V2 leagues",
+            "description": "Participate in the two V2 leagues dropping in Clash Royale.",
+            "due_date": "2025-12-02"
         }
     ]
 }
