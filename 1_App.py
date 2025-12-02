@@ -5,7 +5,7 @@ from actionize_text import actionize_text, text_to_actions_file
 import json
 from mutagen.mp3 import MP3
 
-st.set_page_config("Donna AI")
+st.set_page_config("Donna")
 
 # ---- SESSION STATE INITIALIZATION ----
 if "tasks" not in st.session_state:
@@ -22,7 +22,7 @@ if "due_date" not in st.session_state:
 
 
 # ---- UI ----
-st.title("Donna AI: The Automated Task Manager")
+st.title("Donna: The Automated Task Manager")
 st.divider()
 
 st.session_state.task = st.text_input("Enter your task:", key="task_input")
