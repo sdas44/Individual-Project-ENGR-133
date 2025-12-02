@@ -3,6 +3,7 @@ from tasks import tasks   # adjust import if needed
 from azure_transcribe import transcribe_continuous_with_timeout
 from actionize_text import actionize_text, text_to_actions_file
 import json
+from mutagen.mp3 import MP3
 
 st.set_page_config("Donna AI")
 
@@ -29,18 +30,21 @@ st.session_state.details = st.text_area("Task Details:", key="details_input")
 st.session_state.due_date = st.date_input("Due Date:", key="due_date_input")
 
 if st.button("Add Task"):
-    new_task = tasks(
-        title=st.session_state.task,
-        details=st.session_state.details,
-        due_date=st.session_state.due_date
-    )
+    if st.session_state.task.strip() == "": # error handling for empty task titles
+        st.warning("Please enter a task title.")
+    else:
+        new_task = tasks(
+            title=st.session_state.task,
+            details=st.session_state.details,
+            due_date=st.session_state.due_date
+        )
 
-    st.session_state.tasks.append(new_task)
+        st.session_state.tasks.append(new_task)
 
-    # clear inputs
-    st.session_state.task = ""
-    st.session_state.details = ""
-    st.session_state.due_date = None
+        # clear inputs
+        st.session_state.task = ""
+        st.session_state.details = ""
+        st.session_state.due_date = None
 
 audio_task = st.audio_input("Explain Your Tasks VIA Audio", key="audio_input")
 
@@ -50,21 +54,27 @@ if st.button("Process Audio Task") and audio_task is not None:
         f.write(audio_task.getvalue())
 
     st.success("Audio saved as user_audio.wav")
-    text_transcript = transcribe_continuous_with_timeout("user_audio_task.wav", timeout_seconds=20)
-    action_text = actionize_text(text_transcript)
-    text_to_actions_file(action_text, output_path="audio_extracted_tasks.json")
-    # go through the json file created and add all the tasks to seesion state
-    with open("audio_extracted_tasks.json", "r") as f:
-        action_json = json.load(f)
-        for task in action_json["tasks"]:
-            new_task = tasks(
-                title=task["name"],
-                details=task["description"],
-                due_date=task["due_date"]
-            )
-            st.session_state.tasks.append(new_task)
-    
-    audio_task = None
+    audio_info = MP3("user_audio_task.wav")
+    if audio_info.info.length < 10: # error handling for short and excessively long audio inputs
+        st.warning("Please provide a longer audio input (at least 10 seconds).")
+    elif audio_info.info.length > 1000000:
+        st.warning("Audio Input Too Long. Please limit to under ~3 hours.")
+    else:
+        text_transcript = transcribe_continuous_with_timeout("user_audio_task.wav", timeout_seconds=20)
+        action_text = actionize_text(text_transcript)
+        text_to_actions_file(action_text, output_path="audio_extracted_tasks.json")
+        # go through the json file created and add all the tasks to seesion state
+        with open("audio_extracted_tasks.json", "r") as f:
+            action_json = json.load(f)
+            for task in action_json["tasks"]:
+                new_task = tasks(
+                    title=task["name"],
+                    details=task["description"],
+                    due_date=task["due_date"]
+                )
+                st.session_state.tasks.append(new_task)
+        
+        audio_task = None
 
 st.divider()
 
