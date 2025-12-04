@@ -2,21 +2,51 @@
     "tasks": [
         {
             "id": "task_1",
-            "name": "Clean and mop dorm",
-            "description": "Clean up the dorm and mop down the floors using a broom.",
-            "due_date": "2025-12-02"
+            "name": "Finish physics homework",
+            "description": "Complete the physics homework assignment tonight.",
+            "due_date": "2025-12-04"
         },
         {
             "id": "task_2",
-            "name": "Eat all fridge food",
-            "description": "Consume all the food inside the fridge to prevent it from going bad.",
-            "due_date": null
+            "name": "Professional preparations for engineering",
+            "description": "Complete the professional preparations required for engineering.",
+            "due_date": "2025-12-05"
         },
         {
             "id": "task_3",
-            "name": "Play Clash Royale V2 leagues",
-            "description": "Participate in the two V2 leagues dropping in Clash Royale.",
-            "due_date": "2025-12-02"
+            "name": "Cultural task",
+            "description": "Complete the cultural task that is mentioned as important.",
+            "due_date": null
+        },
+        {
+            "id": "task_4",
+            "name": "Professional development task",
+            "description": "Complete the professional development task that is mentioned as important.",
+            "due_date": null
+        },
+        {
+            "id": "task_5",
+            "name": "Academy for Engineering",
+            "description": "Complete the required work for the Academy for Engineering.",
+            "due_date": null
+        },
+        {
+            "id": "task_6",
+            "name": "Evaluate teammates",
+            "description": "Evaluate all teammates honestly.",
+            "due_date": null
+        },
+        {
+            "id": "task_7",
+            "name": "Physics extra credit – waves",
+            "description": "Complete the physics extra credit assignment on waves.",
+            "due_date": "2025-12-07"
+        },
+        {
+            "id": "task_8",
+            "name": "Physics extra credit – AI generated summary",
+            "description": "Complete the physics extra credit assignment that requires an AI generated summary.",
+            "due_date": "2025-12-07"
         }
     ]
 }
